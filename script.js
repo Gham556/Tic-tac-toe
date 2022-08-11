@@ -10,8 +10,17 @@ function toggle() {
 }
 
 
-function gameBoard() {
-let board = [a, b, c, d, e, f, g, h, i]}
+function gameBoard(a, b, c, d, e, f, g, h, i) {
+this.a = a;
+this.b = b;
+this.c = c;
+this.d = d; 
+this.e = e;
+this.f = f;
+this.g = g;
+this.h = h;
+this.i = i;
+}
 
 function players(name) {
     this.name = name;
@@ -23,41 +32,36 @@ function displayController() {
 
 function startGame() {
     toggle();
-    let playerOne = document.getElementsByName('playerOne').value;
-    let playerTwo = document.getElementsByName('playerTwo').value;
     const spaces = document.querySelectorAll('div.space');
     console.log(spaces);
+    let allSpacesArray = [];
     for (let i = 0; i < spaces.length; i++) {
-          let  space = spaces[i];
-        space.addEventListener('click', addPeice)};
-    return {playerOne, playerTwo};
+          space = spaces[i];
+          allSpacesArray.push(space);
+        space.addEventListener('click', function (e){
+            console.log(this);
+            console.log(e);
+            let round = [0,1];
+            let currentRound = round[round.length - 1];
+            if (!this.textContent) {
+                    if (currentRound) {
+                        this.textContent = 'X';
+                        round.push(0);
+                    }
+        
+                    else {
+                        this.textContent = 'O';
+                        round.push(1);
+                    }
+                };
+            })};
+        
+       
+    const allSpaces = new gameBoard(allSpacesArray[0],allSpacesArray[1],allSpacesArray[2], allSpacesArray[3], allSpacesArray[4], allSpacesArray[5], allSpacesArray[6], allSpacesArray[7], allSpacesArray[8])
+    console.log (allSpaces)
+    return allSpaces
+    
 }
 
-function addPeice(playerOne, playerTwo) {
-    console.log(this);
-    let round = [playerOne, playerTwo]
-    let currentRound = round[0]
-    if(currentRound) {
-        this.textContent = 'X';
-        switchPlayer(round);
-    }
 
-    else{
-        space.textContent = 'O';
-        switchPlayer(round);
-    }
-}
 
-function switchPlayer() {
-    
-    
-    if (currentRound === round[0]) {
-        currentRound = round[1];
-        alert('works')
-    }
-    else {
-        currentRound = round[0];
-        alert('also works')
-    }
-
-};
