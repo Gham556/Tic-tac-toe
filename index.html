@@ -5,30 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <button class="startGame">Start Game</button>
-    <div class="enterPlayers">
-        <h1>Enter Player Names</h1>
-        <label for="playerOne"></label>
-        <input type="text" name="playerOne">
-        <label for="playerTwo"></label>
-        <input type="text" name="playerTwo">
-        <button class="initializeGame">Let's Go!</button>
+    <div class="content">
+        <button class="startGame">Start Game</button>
+        <div class="popup">
+            <div class="enterPlayers">
+                <h1>Enter Player Names</h1>
+                <label for="playerOne"></label>
+                <input type="text" name="playerOne">
+                <label for="playerTwo"></label>
+                <input type="text" name="playerTwo">
+                <button class="initializeGame">Let's Go!</button>
+            </div>
+        </div>
+        <div class="gameBoard">
+            <div class="space"><div class="marker"></div></div>
+            <div class="space"><div class="marker"></div></div>
+            <div class="space"><div class="marker"></div></div>
+            <div class="space"><div class="marker"></div></div>
+            <div class="space"><div class="marker"></div></div>
+            <div class="space"><div class="marker"></div></div>
+            <div class="space"><div class="marker"></div></div>
+            <div class="space"><div class="marker"></div></div>
+            <div class="space"><div class="marker"></div></div>
+        </div>
+        <button>Confirm</button>
     </div>
-    <div class="gameBoard">
-        <div class="space"><div class="marker"></div></div>
-        <div class="space"><div class="marker"></div></div>
-        <div class="space"><div class="marker"></div></div>
-        <div class="space"><div class="marker"></div></div>
-        <div class="space"><div class="marker"></div></div>
-        <div class="space"><div class="marker"></div></div>
-        <div class="space"><div class="marker"></div></div>
-        <div class="space"><div class="marker"></div></div>
-        <div class="space"><div class="marker"></div></div>
-    </div>
-    <button>Confirm</button>
 </body>
 </html>
