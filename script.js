@@ -35,13 +35,14 @@ function startGame() {
     const spaces = document.querySelectorAll('div.space');
     console.log(spaces);
     let allSpacesArray = [];
+    let round = [0,1];
     for (let i = 0; i < spaces.length; i++) {
           space = spaces[i];
           allSpacesArray.push(space);
         space.addEventListener('click', function (e){
             console.log(this);
             console.log(e);
-            let round = [0,1];
+            
             let currentRound = round[round.length - 1];
             if (!this.textContent) {
                     if (currentRound) {
