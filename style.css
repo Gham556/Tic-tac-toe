@@ -1,1 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.gameBoard {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+}
+
+.space {
+    height: 100px;
+    background: #000;
+    border: solid white;
+    color: #FFF;
+    font-weight: 700;
+    font-size: 7rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
 
