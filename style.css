@@ -11,6 +11,16 @@
     margin-top: 30vh;;
 }
 
+.players {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    column-gap: 30px;
+    color: black;
+    font-weight: 700;
+    font-size: 32px;
+    margin-bottom: 60px;
+}
+
 .popupContainer {
     position: relative;
   display: inline-block;
