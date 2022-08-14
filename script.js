@@ -4,7 +4,7 @@ const playerOneName = document.getElementById('playerOne');
 const playerTwoName = document.getElementById('playerTwo');
 const nameOne = document.querySelector('div.nameOne');
 const nameTwo = document.querySelector('div.nameTwo');
-const gameArea = document.querySelector('div.popup')
+const gameArea = document.querySelector('div.popup');
 const spaces = document.querySelectorAll('div.space');
 
 initializeGameButton.addEventListener('click', initializeGame);
@@ -26,23 +26,35 @@ this.g = g;
 this.h = h;
 this.i = i;
     
-    winningboards = [{a, b, c}, {d, e, f}, {g, h, i}, {a, d, g}, {b, e, h}, {c, f, i}, {a, e, i}, {c, e, g}]  
-    return {winningboards};
-
+winningboards = [[a + b + c], [d + e + f], [g + h + i], [a + d + g], [b + e + h], [c + f + i], [a + e + i], [c + e + g]] 
+for (z of winningboards){    
+if (z[0] === 3) {
+    alert('win');
 }
+}
+return winningboards;
+
+};
+
+function squareCoordinate (x, y) {
+    this.x = x;
+    this.y = y;
+    
+
+};
 
 function players(name) {
     this.name = name;
-}
+};
 
 
 function initializeGame() {
     toggle();
     playerOne = new players(playerOneName.value);
-    playerTwo = new players(playerTwoName.value)
+    playerTwo = new players(playerTwoName.value);
     nameOne.textContent = playerOne.name;
     nameTwo.textContent = playerTwo.name;
-    console.log(playerTwo)
+    console.log(playerTwo);
     let allSpacesArray = [];
     let round = [0,1];
    
@@ -50,37 +62,32 @@ function initializeGame() {
             space = spaces[i];
             allSpacesArray.push(space);
             space.addEventListener('click', function (e){
-            console.log(this);
-            console.log(toggle);
             let currentRound = round[round.length - 1];
             if (!this.textContent) {
                     if (currentRound) {
                         this.textContent = 'X';          
                         round.push(0);
+                        x = allSpacesArray.indexOf(this);
+                        allSpacesArray[x] = 1;
+                        console.log(allSpacesArray)
+                        allSpaces = new gameBoard(allSpacesArray[0],allSpacesArray[1],allSpacesArray[2], allSpacesArray[3], allSpacesArray[4], allSpacesArray[5], allSpacesArray[6], allSpacesArray[7], allSpacesArray[8]);
+                        console.log(winningboards)
 
-                        }
                     }
-        
                     else {
                         this.textContent = 'O';
                         round.push(1);
+                        x = allSpacesArray.indexOf(this);
+                        allSpacesArray[x] = 0;
+                        console.log(allSpacesArray)
+                        allSpaces = new gameBoard(allSpacesArray[0],allSpacesArray[1],allSpacesArray[2], allSpacesArray[3], allSpacesArray[4], allSpacesArray[5], allSpacesArray[6], allSpacesArray[7], allSpacesArray[8]);
+                        console.log(winningboards)
                     }
-                };
-            })};
-        
-       
-    const allSpaces = new gameBoard(allSpacesArray[0],allSpacesArray[1],allSpacesArray[2], allSpacesArray[3], allSpacesArray[4], allSpacesArray[5], allSpacesArray[6], allSpacesArray[7], allSpacesArray[8]) 
-        
-        console.log(winningboards)
-    
-}
-
-let runGame = function () {
-    for (let i = 0; i < spaces.length; i++) {
-    space = spaces[i];
-    space.addEventListener('DOMCharacterDataModified', function(){
-    console.log(winningboards);
-    console.log('works')
-})
+                }
+            });
+    }
+   
 };
-}();
+
+
+
