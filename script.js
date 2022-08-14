@@ -25,17 +25,26 @@ this.f = f;
 this.g = g;
 this.h = h;
 this.i = i;
-    
+
+boardSum = a + b + c + e + g + h + i
 winningboards = [[a + b + c], [d + e + f], [g + h + i], [a + d + g], [b + e + h], [c + f + i], [a + e + i], [c + e + g]] 
 for (z of winningboards){    
-if (z[0] === 3) {
-    alert('win');
-}
-}
-return winningboards;
+    if (z[0] === 3) {
+        alert(playerOne.name + ' wins!');
+    }
+    
+    else if (z[0] === 0) {
+        alert(playerTwo.name + ' wins!')
+    }
+
+    else if (boardSum === 4)
+    alert("Tie");
+    break
 
 };
-
+console.log(boardSum)
+return winningboards;
+}
 function squareCoordinate (x, y) {
     this.x = x;
     this.y = y;
@@ -71,8 +80,7 @@ function initializeGame() {
                         allSpacesArray[x] = 1;
                         console.log(allSpacesArray)
                         allSpaces = new gameBoard(allSpacesArray[0],allSpacesArray[1],allSpacesArray[2], allSpacesArray[3], allSpacesArray[4], allSpacesArray[5], allSpacesArray[6], allSpacesArray[7], allSpacesArray[8]);
-                        console.log(winningboards)
-
+                      
                     }
                     else {
                         this.textContent = 'O';
